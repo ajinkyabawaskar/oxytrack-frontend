@@ -14,6 +14,10 @@ body {
   margin: 0;
   font-family: 'Inter', sans-serif !important;
 }
+.mat-typography, mat-menu, mat-menu-item, mat-form-field, mat-label, mat-card {
+  font-family: 'Inter', sans-serif !important;
+}
+
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";

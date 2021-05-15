@@ -15,7 +15,7 @@ export class HomeComponent {
   loggedIn: boolean = true;
   userData: User;
 
-  constructor(public userService: UserService) {
+  constructor(public userService: UserService, public router: Router) {
     this.userService.loginEvent.subscribe((loggedIn) => {
       this.loggedIn = loggedIn;
       if (loggedIn) {
@@ -45,7 +45,7 @@ export class HomeComponent {
     }
   }
 
-  init_add_cylinder(): void {
-    console.log("next");
+  goto(path: String): void {
+    this.router.navigate([path]);
   }
 }

@@ -3,7 +3,18 @@
     <!-- <button mat-icon-button (click)="snav.toggle()">
     <mat-icon>menu</mat-icon>
 </button> -->
-    <h1 routerLink="/" class="example-app-name">OxyTrack</h1>
+    <h1 routerLink="/" class="example-app-name">
+      <span *ngIf="router.url == '/'; else backButton">
+        OxyTrack
+      </span>
+    </h1>
+
+    <ng-template #backButton>
+      <div class="d-flex justify-content-between align-items-center">
+        <mat-icon>arrow_back</mat-icon>
+        <div class="user-name">Back</div>
+      </div>
+    </ng-template>
 
 
     <span class="example-spacer"></span>

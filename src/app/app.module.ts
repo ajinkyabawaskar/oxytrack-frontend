@@ -16,7 +16,11 @@ import {ErrorInterceptor} from './helpers/error.interceptor';
 import {JwtInterceptor} from './helpers/jwt.interceptor';
 import { HomeComponent } from './home/home.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from './environments/environment';
+import { environment } from '../environments/environment';
+import { AddCylinderComponent } from './add-cylinder/add-cylinder.component';
+import { CylinderService } from './services/cylinder-service.service';
+import { RegisterPatientComponent } from './register-patient/register-patient.component';
+import { PatientService } from './services/patient-service.service';
 
 @NgModule({
   declarations: [
@@ -25,6 +29,8 @@ import { environment } from './environments/environment';
     SignupComponent,
     NavbarComponent,
     HomeComponent,
+    AddCylinderComponent,
+    RegisterPatientComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +50,8 @@ import { environment } from './environments/environment';
   ],
   providers: [
     UserService,
+    CylinderService,
+    PatientService,
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
