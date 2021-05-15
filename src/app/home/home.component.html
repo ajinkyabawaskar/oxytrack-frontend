@@ -1,0 +1,61 @@
+<div class="container mt-5">
+  <div class="row">
+      <div class="col-md-3">
+          <div class="mt-2">
+              <mat-card>
+                  <div class="fs-large my-2">
+                      10
+                  </div>
+                  <div>
+                      Total Cylinders
+                  </div>
+              </mat-card>
+          </div>
+      </div>
+  </div>
+
+  <hr class="mt-4 my-3">
+
+  <div class="row">
+      <div class="col">
+          <div class="mt-2">
+              <mat-card (click)="init_add_cylinder()"  class="actionButton">
+                  <div class="d-flex align-items-center">
+                      <mat-icon style="color: #3f51b5;">add_circle_outline</mat-icon>
+                      <div class="ml-2">Add New Cylinder</div>
+                  </div>
+              </mat-card>
+          </div>
+      </div>
+      <div class="col">
+          <div class="mt-2">
+              <mat-card (click)="init_add_cylinder()" class="actionButton">
+                  <div class="d-flex align-items-center">
+                      <mat-icon style="color: #3f51b5;">create</mat-icon>
+                      <div class="ml-2">Register Patient</div>
+                  </div>
+              </mat-card>
+          </div>
+      </div>
+      <div class="col">
+          <div class="mt-2">
+              <mat-card (click)="init_add_cylinder()"  class="actionButton">
+                  <div class="d-flex align-items-center">
+                      <mat-icon style="color: #3f51b5;">search</mat-icon>
+                      <div class="ml-2">Post Requirement</div>
+                  </div>
+              </mat-card>
+          </div>
+      </div>
+      <div class="col" *ngIf="userData?.role === 'ADMIN'">
+        <div class="mt-2">
+            <mat-card (click)="init_add_cylinder()"  class="actionButton">
+                <div class="d-flex align-items-center">
+                    <mat-icon style="color: #3f51b5;">check</mat-icon>
+                    <div class="ml-2">Fulfill Requirement</div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+  </div>
+</div>
