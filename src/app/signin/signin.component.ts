@@ -53,18 +53,18 @@ export class SigninComponent implements OnInit {
           this.router.navigate([returnUrl]);
         },
         error: error => {
-          if(error = 'Access Denied') {
+          if (error = 'Access Denied') {
             this.error = 'Incorrect username or password';
           }
           else {
             this.error = 'Something went wrong';
           }
-          this.loading = false;
         }
       });
+    this.loading = false;
   }
 
-  
+
   req = new FormControl('', [Validators.required]);
 
   getUsernameErrorMessage() {

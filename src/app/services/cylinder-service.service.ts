@@ -5,6 +5,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {environment} from '../../environments/environment';
 import { Cylinder } from '../models/cylinder.model';
+import { Requirement } from '../models/requirement.model';
 
 @Injectable()
 export class CylinderService {
@@ -28,15 +29,15 @@ export class CylinderService {
     return this.http.post(`${environment.apiUrl}/cylinder/`, cylinder);
   }
 
-  getOwnData() {
-    return this.http.get<any>(`${environment.apiUrl}/volunteer/`)
-      .pipe(
-        map(
-          response => {
-            // store user details and jwt token in local storage to keep user logged in between page refreshes
-            let user = new User();
-            user = response;
-            return user;
-          }));
+  getRequirement(requirementId: String) {
+    return this.http.get<Requirement>(`${environment.apiUrl}/requirement/id/${requirementId}`);
+  }
+
+  getCylinders(query: String) {
+    return this.http.get<Cylinder[]>(`${environment.apiUrl}/cylinder/identifier/${query}`);
+  }
+
+  fulfillRequirement(requirementId: String, cylinder: Cylinder) {
+    return this.http.post<Requirement>(`${environment.apiUrl}/requirement/${requirementId}`, cylinder);
   }
 }

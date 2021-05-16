@@ -7,4 +7,5 @@ export class User {
     role: string;
     createdAt: Date;
     token?: string;
+    otp: string;
 }

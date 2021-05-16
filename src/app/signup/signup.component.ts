@@ -17,7 +17,7 @@ export class SignupComponent  implements OnInit {
   isLinear = false;
 
   uploadMessage: string = 'Choose Avatar';
-  loginForm: FormGroup;
+  signupForm: FormGroup;
   user: User;
   loading = false;
   submitted = false;
@@ -30,35 +30,31 @@ export class SignupComponent  implements OnInit {
     private userService: UserService) {
     // redirect to home if already logged in
     if (this.userService.currentUserValue) {
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/']);
     }
     this.user = new User();
   }
-
   // convenience getter for easy access to form fields
-  get f() { return this.loginForm.controls; }
+  get f() { return this.signupForm.controls; }
 
   ngOnInit() {
-    this.loginForm = this.formBuilder.group({
+    this.signupForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
       email: ['', Validators.required],
       name: ['', Validators.required],
-      contact: ['', Validators.required]
+      contact: ['', Validators.required],
+      otp: ['', Validators.required]
     });
   }
 
   onSubmit() {
     this.submitted = true;
-    const formData = new FormData();
-    formData.append('username', this.user.username);
-    formData.append('contact', this.user.contact);
-    formData.append('password', this.user.password);
-    formData.append('name', this.user.name);
-    formData.append('role', 'VOLUNTEER');
     this.loading = true;
+    this.user.role = "VOLUNTEER";
 
-    this.userService.signup(formData)
+    this.userService.signup(this.user)
       .pipe(first())
       .subscribe({
         next: () => {
@@ -75,21 +71,16 @@ export class SignupComponent  implements OnInit {
                   this.error = 'Incorrect username or password';
                 }
                 else {
-                  this.error = 'Account created, but couldn\'t log you in!';
+                  this.error = 'Incorrect OTP. Ask admin for OTP.';
                 }
               }
           })
         },
         error: (error) => {
-          if(error === 'Access Denied') {
-            this.error = 'Incorrect username or password';
-          }
-          else {
-            this.error = 'Account created, but couldn\'t log you in!';
-          }
+          this.error = "Incorrect OTP. Ask admin for OTP."
         }
       });
-
+      this.loading = false;
   }
 
 

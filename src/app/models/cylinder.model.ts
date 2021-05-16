@@ -1,3 +1,5 @@
+import { Patient } from "./patient.model";
+
 export class Cylinder {
     id: number;
     addedAt: Date;
@@ -5,4 +7,5 @@ export class Cylinder {
     status: string;
     currentCapacity: String;
     totalCapacity: string;
+    patients: Patient[];
 }

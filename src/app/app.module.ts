@@ -21,6 +21,9 @@ import { AddCylinderComponent } from './add-cylinder/add-cylinder.component';
 import { CylinderService } from './services/cylinder-service.service';
 import { RegisterPatientComponent } from './register-patient/register-patient.component';
 import { PatientService } from './services/patient-service.service';
+import { PostRequirementComponent } from './post-requirement/post-requirement.component';
+import { FulfillRequirementComponent } from './fulfill-requirement/fulfill-requirement.component';
+import { ViewRequirementsComponent } from './view-requirements/view-requirements.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,9 @@ import { PatientService } from './services/patient-service.service';
     HomeComponent,
     AddCylinderComponent,
     RegisterPatientComponent,
+    PostRequirementComponent,
+    FulfillRequirementComponent,
+    ViewRequirementsComponent,
   ],
   imports: [
     BrowserModule,

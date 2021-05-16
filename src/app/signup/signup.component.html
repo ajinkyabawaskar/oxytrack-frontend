@@ -16,18 +16,25 @@
                     <form (ngSubmit)="onSubmit()" #userForm="ngForm">
                         <div class="container-fluid px-2">
                             <div class="row">
-                                <div class="col-md-6 mb-1">
+                                <div class="col-md-4 mb-1">
                                     <mat-form-field appearance="outline" class="w-100">
                                         <mat-label>Name</mat-label>
                                         <input matInput type="text" placeholder="Enter your name"  name="name" [(ngModel)]="user.name" #name="ngModel" required>
                                         <mat-error *ngIf="name.invalid">{{getNameErrorMessage()}}</mat-error>
                                     </mat-form-field>
                                 </div>
-                                <div class="col-md-6 mb-1">
+                                <div class="col-md-4 mb-1">
                                     <mat-form-field appearance="outline" class="w-100">
                                         <mat-label>Contact</mat-label>
                                         <input matInput type="text" placeholder="Enter your phone number"  name="contact" [(ngModel)]="user.contact" #contact="ngModel" required>
                                         <mat-error *ngIf="contact.invalid">{{getContactErrorMessage()}}</mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4 mb-1">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>OTP</mat-label>
+                                        <input matInput type="text" placeholder="Enter OTP"  name="otp" [(ngModel)]="user.otp" #otp="ngModel" required>
+                                        <mat-error *ngIf="otp.invalid">{{getContactErrorMessage()}}</mat-error>
                                     </mat-form-field>
                                 </div>
                                 <div class="col-md-4 mb-1">
@@ -49,7 +56,7 @@
                                 <div class="col-md-4 mb-1">
                                     <mat-form-field appearance="outline" class="w-100">
                                         <mat-label>Confirm Password</mat-label>
-                                        <input matInput type="password" placeholder="Enter your password"  required>
+                                        <input matInput type="password" placeholder="Enter your password" name="confirmPassword" required>
                                         <mat-icon matSuffix>vpn_key</mat-icon>
                                         <mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error>
                                     </mat-form-field>

@@ -42,7 +42,7 @@ export class RegisterPatientComponent implements OnInit {
       .subscribe({
         next: (response) => {
           let responsePatient: any = response;
-          this.openSnackBar(responsePatient.identifier + ` added!`, "Close");
+          this.openSnackBar(responsePatient.patientName + ` registered!`, "Close");
         },
         error: error => {
           if(error == 'Access Denied') {

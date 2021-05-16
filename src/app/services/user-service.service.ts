@@ -50,8 +50,8 @@ export class UserService {
     this.currentUserSubject.next(null);
   }
 
-  public signup(formData : FormData) {
-    return this.http.post(`${environment.apiUrl}/volunteer/`, formData);
+  public signup(user: User) {
+    return this.http.post(`${environment.apiUrl}/volunteer/?otp=${user.otp}`, user);
   }
 
   getOwnData() {

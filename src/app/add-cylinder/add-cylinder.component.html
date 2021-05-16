@@ -18,7 +18,7 @@
                                 <div class="col-md-12 mb-1">
                                     <mat-form-field appearance="outline" class="w-100">
                                         <mat-label>Identifier</mat-label>
-                                        <input matInput type="text" placeholder="Enter your identifier" name="identifier" [(ngModel)]="cylinder.identifier" #identifier="ngModel" required>
+                                        <input matInput type="text" placeholder="Enter identifier of cylinder" name="identifier" [(ngModel)]="cylinder.identifier" #identifier="ngModel" required>
                                         <mat-error *ngIf="identifier.invalid">{{getErrorMessage()}}</mat-error>
                                         <mat-hint>Unique ID of the cylinder</mat-hint>
                                     </mat-form-field>
